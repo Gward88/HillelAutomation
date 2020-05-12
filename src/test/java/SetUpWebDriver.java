@@ -6,12 +6,16 @@ import org.openqa.selenium.opera.OperaDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-
+import java.util.concurrent.TimeUnit;
 
 
 public class SetUpWebDriver {
     WebDriver driver;
     BasePage basePage;
+    ShopPage shopPage;
+    DiscountPage discountPage;
+    AboutPage aboutPage;
+    ContactsPage contactsPage;
     String browser = "chrome";
     String baseUrl = "http://cup-cakebox.com/";
 
@@ -32,13 +36,18 @@ public class SetUpWebDriver {
              driver = new OperaDriver();
         }
          driver.manage().window().maximize();
+         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
          driver.get(baseUrl);
          basePage = new BasePage(driver);
+         shopPage = new ShopPage(driver);
+         discountPage = new DiscountPage(driver);
+         aboutPage = new AboutPage(driver);
+         contactsPage = new ContactsPage(driver);
     }
 
 
-//    @AfterMethod()
-//    public void teardown () {
-//        driver.quit();
-//    }
+    @AfterMethod()
+    public void teardown () {
+        driver.quit();
+    }
 }
