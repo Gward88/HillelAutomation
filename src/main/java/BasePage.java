@@ -47,7 +47,9 @@ public class BasePage extends InitPage {
     public void clickToShopButton(){
         shopButton.click();
     }
+    public void test123(){
 
+    }
     public void clickToDiscountButton(){
         discountButton.click();
     }

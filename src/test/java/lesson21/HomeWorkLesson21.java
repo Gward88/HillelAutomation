@@ -1,6 +1,7 @@
 package lesson21;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -46,6 +47,18 @@ public class HomeWorkLesson21{
         searchField.sendKeys(Keys.chord(Keys.COMMAND, "c"));
         searchField.click();
         searchField.sendKeys(Keys.chord(Keys.COMMAND, "v"));
+    }
+    @Test
+    public void keyControl1(){
+        driver.get("https://www.google.com/");
+        WebElement search = driver.findElement(By.xpath("//input[@name='q']"));
+        search.click();
+        search.sendKeys("123");
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.chord(Keys.COMMAND, "a"));
+        actions.sendKeys(Keys.chord(Keys.COMMAND, "c"));
+        searchField.click();
+        actions.sendKeys(Keys.chord(Keys.COMMAND, "v"));
     }
 
     @Test
